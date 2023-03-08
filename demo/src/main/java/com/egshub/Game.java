@@ -1,5 +1,6 @@
 package com.egshub;
 
+import java.awt.image.BufferedImage;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,10 +15,16 @@ public class Game extends Canvas implements Runnable {
     public static int HEIGHT = 120;
     public static int SCALE = 3;
 
+    public static int SWIDTH = WIDTH* SCALE;
+    public static int SHEIGHT = HEIGHT * SCALE;
+    
+
+    public BufferedImage layer = new BufferedImage(SWIDTH, SHEIGHT, BufferedImage.TYPE_INT_RGB);
+    
     public Player player;
 
     public Game() {
-        this.setPreferredSize(new Dimension(WIDTH*SCALE, HEIGHT*SCALE));
+        this.setPreferredSize(new Dimension(SWIDTH, SHEIGHT));
 
         player = new Player();
     }
@@ -48,8 +55,11 @@ public class Game extends Canvas implements Runnable {
             return;
         }
 
-        Graphics g = bs.getDrawGraphics();
+        Graphics g = layer.getGraphics();
         player.render(g);
+
+        g = bs.getDrawGraphics();
+        g.drawImage(layer, 0, 0, SWIDTH, SHEIGHT, null);
 
         bs.show();
     }
