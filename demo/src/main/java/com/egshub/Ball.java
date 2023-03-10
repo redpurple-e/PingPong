@@ -2,36 +2,32 @@ package com.egshub;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
-public class Enemy {
-
+public class Ball {
     public double x, y;
 
-    public static int width = 25;
+    public static int width = 4;
     public static int height = 4;
 
-    private int offset = 1;
+    public double dx, dy, speed;
 
-    public Enemy(double x, double y) {
+    public Ball(double x, double y) {
         this.x = x;
         this.y = y;
+
+        dx = new Random().nextGaussian();
+        dy = new Random().nextGaussian();
+        speed = 0.5;
     }
     
     public void tick() {
-        x += Game.ball.x - x;
-
-        
-        if(x > Game.WIDTH - width - offset) {
-            x = Game.WIDTH - width - offset;
-        }
-
-        if(x < offset) {
-            x = offset;
-        }
+        x += dx * speed;
+        y += dy * speed;
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.ORANGE);
+        g.setColor(Color.red);
         g.fillRect((int)x * Game.SCALE, (int)y * Game.SCALE, width * Game.SCALE, height * Game.SCALE);
     }
 

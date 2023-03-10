@@ -26,6 +26,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     
     public Player player;
     public Enemy enemy;
+    public static Ball ball;
 
     public Game() {
         this.setPreferredSize(new Dimension(SWIDTH, SHEIGHT));
@@ -33,6 +34,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
         player = new Player(WIDTH/2 - Player.width/2, HEIGHT - Player.height - 1);
         enemy = new Enemy(WIDTH/2 - Enemy.width/2, 1);
+        ball = new Ball(WIDTH/2 + Ball.width/2, HEIGHT/2 + Ball.height/2);
     }
     
     public static void main( String[] args ) {
@@ -52,6 +54,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public void tick() {
         player.tick();
+        enemy.tick();
+        ball.tick();
     }
 
     public void render() {
@@ -66,6 +70,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         g.fillRect(0, 0, SWIDTH, SHEIGHT);
         player.render(g);
         enemy.render(g);
+        ball.render(g);
 
         g = bs.getDrawGraphics();
         g.drawImage(layer, 0, 0, SWIDTH, SHEIGHT, null);
