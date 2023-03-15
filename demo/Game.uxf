@@ -1,0 +1,35 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>16</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>0</x><y>704</y><w>336</w><h>192</h></coordinates><panel_attributes>_Ball: Class_
+Package::egshub
+--
+
+_-dx: double_
+_-dy: double_
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>704</x><y>704</y><w>336</w><h>176</h></coordinates><panel_attributes>_Enemy: Class_
+Package::egshub
+--
+
+_-chance: double_
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>352</x><y>704</y><w>336</w><h>192</h></coordinates><panel_attributes>_Player: Class_
+Package::egshub
+--
+
+_-left: boolean_
+_-right: boolean_
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>368</y><w>368</w><h>368</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>210;10;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>512</x><y>368</y><w>48</w><h>368</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;210</additional_attributes></element><element><id>UMLClass</id><coordinates><x>368</x><y>16</y><w>336</w><h>368</h></coordinates><panel_attributes>/Entity/
+Package::egshub
+--
+
+_-x: double_
+_-y: double_
+_-speed: double_
+_-widht: int_
+_-height: int_
+_-offset: final int_
+
+--
+
++tick(void): void
++render(g: Graphics): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>544</x><y>368</y><w>368</w><h>368</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;210;210</additional_attributes></element></diagram>
