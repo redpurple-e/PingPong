@@ -7,19 +7,19 @@ public class Player {
     
     public int x;
     public int y;
-    public int speed = 3;
+    public int speed = 4;
 
     private final int offset = 1;
 
-    public int width = 25;
-    public int height = 4;
+    public static int width = 25;
+    public static int height = 4;
 
     public boolean left = false;
     public boolean right = false;
 
     public Player(int x, int y) {
-        this.x = x - width/2;
-        this.y = y - height - offset;
+        this.x = x;
+        this.y = y;
     }
 
     public void tick() {

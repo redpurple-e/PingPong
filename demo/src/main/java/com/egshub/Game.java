@@ -24,17 +24,17 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public BufferedImage layer = new BufferedImage(SWIDTH, SHEIGHT, BufferedImage.TYPE_INT_RGB);
     
-    public static Player player;
-    public static Enemy enemy;
+    public Player player;
+    public Enemy enemy;
     public static Ball ball;
 
     public Game() {
         this.setPreferredSize(new Dimension(SWIDTH, SHEIGHT));
         this.addKeyListener(this);
 
-        player = new Player(WIDTH/2, HEIGHT);
-        enemy = new Enemy(WIDTH/2, 0);
-        ball = new Ball(WIDTH/2, HEIGHT/2);
+        player = new Player(WIDTH/2 - Player.width/2, HEIGHT - Player.height - 1);
+        enemy = new Enemy(WIDTH/2 - Enemy.width/2, 1);
+        ball = new Ball(WIDTH/2 + Ball.width/2, HEIGHT/2 + Ball.height/2);
     }
     
     public static void main( String[] args ) {
@@ -84,9 +84,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
     @Override
     public void run() {
         // TODO Auto-generated method stub
+       // throw new UnsupportedOperationException("Unimplemented method 'run'");
 
         while(true) {
-            requestFocus();
             tick();
             render();
             
