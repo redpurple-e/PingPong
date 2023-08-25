@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         this.setPreferredSize(new Dimension(SWIDTH, SHEIGHT));
         this.addKeyListener(this);
 
-        player = new Player(WIDTH/2 - Player.width/2, HEIGHT - Player.height - 1);
+        player = new Player(HEIGHT, WIDTH/2, 2);
         enemy = new Enemy(WIDTH/2 - Enemy.width/2, 1);
         ball = new Ball(WIDTH/2 + Ball.width/2, HEIGHT/2 + Ball.height/2);
     }

@@ -5,47 +5,36 @@ import java.awt.Graphics;
 
 import com.egshub.main.Game;
 
-public class Player {
+public class Player extends Entity {
     
-    public int x;
-    public int y;
-    public int speed = 4;
-
-    private final int offset = 1;
-
-    public static int width = 25;
-    public static int height = 4;
-
     public boolean left = false;
     public boolean right = false;
+    
+    public Player(double x, double y, double speed) {
+        super(x, y, speed);
 
-    public Player(int x, int y) {
-        this.x = x;
-        this.y = y;
+        setOffset(-1);
+        setWidth(25);
+        setHeight(4);
     }
-
+    
     public void tick() {
-        if (left) {
-            x -= speed;
+        if(left) {
+            setX(getX() - getSpeed());
+        } else if(right) {
+            setX(getX() + getSpeed());
         }
-        if (right) {
-             x += speed;
+        
+        if(getX() > Game.WIDTH - getWidth() - getOffset()) {
+            setX(Game.WIDTH - getWidth() - getOffset());
         }
-
-
-        if(x > Game.WIDTH - width - offset) {
-            x = Game.WIDTH - width - offset;
-        }
-
-        if(x < offset) {
-            x = offset;
+        if(getX() < getOffset()) {
+            setX(getOffset());
         }
     }
 
     public void render(Graphics g) {
-
         g.setColor(Color.blue);
-        g.fillRect(x * Game.SCALE, y * Game.SCALE, width * Game.SCALE, height * Game.SCALE);
+        g.fillRect((int)getX() * Game.SCALE, (int)getY() * Game.SCALE, getWidth() * Game.SCALE, getHeight() * Game.SCALE);
     }
-
 }
