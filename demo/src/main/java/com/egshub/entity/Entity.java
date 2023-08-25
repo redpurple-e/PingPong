@@ -1,4 +1,4 @@
-package com.egshub;
+package com.egshub.entity;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -6,10 +6,7 @@ import java.awt.Rectangle;
 public abstract class Entity {
     
     private double x, y, speed;
-    
-    private int width = 20;
-    private int height = 4;
-
+    private static int width, height;
     private final int offset = 1;
 
     private Rectangle bounds;

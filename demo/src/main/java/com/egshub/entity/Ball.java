@@ -1,8 +1,10 @@
-package com.egshub;
+package com.egshub.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
+
+import com.egshub.main.Game;
 
 public class Ball {
     public double x, y;

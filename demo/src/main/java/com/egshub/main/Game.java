@@ -1,4 +1,4 @@
-package com.egshub;
+package com.egshub.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -10,6 +10,10 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
+
+import com.egshub.entity.Ball;
+import com.egshub.entity.Enemy;
+import com.egshub.entity.Player;
 
 
 public class Game extends Canvas implements Runnable, KeyListener {
@@ -78,12 +82,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
         bs.show();
     }
 
-
-
-
     @Override
     public void run() {
-        // TODO Auto-generated method stub
+        requestFocus();
        // throw new UnsupportedOperationException("Unimplemented method 'run'");
 
         while(true) {

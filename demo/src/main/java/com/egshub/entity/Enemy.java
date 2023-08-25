@@ -1,7 +1,9 @@
-package com.egshub;
+package com.egshub.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
+
+import com.egshub.main.Game;
 
 public class Enemy {
 
