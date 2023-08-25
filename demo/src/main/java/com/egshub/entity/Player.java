@@ -13,7 +13,7 @@ public class Player extends Entity {
     public Player(double x, double y, double speed) {
         super(x, y, speed);
 
-        setOffset(-1);
+        setOffset(1);
         setWidth(25);
         setHeight(4);
     }
@@ -25,7 +25,7 @@ public class Player extends Entity {
             setX(getX() + getSpeed());
         }
         
-        if(getX() > Game.WIDTH - getWidth() - getOffset()) {
+        if(getX() > Game.WIDTH - getWidth() + getOffset()) {
             setX(Game.WIDTH - getWidth() - getOffset());
         }
         if(getX() < getOffset()) {

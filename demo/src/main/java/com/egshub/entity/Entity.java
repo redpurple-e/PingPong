@@ -19,9 +19,8 @@ public abstract class Entity {
         bounds = new Rectangle((int) x, (int) y, width, height);
     }
     
-    public void tick() {}
-    
-    public void render(Graphics g) {}
+    public abstract void tick();
+    public abstract void render(Graphics g);
     
     public double getX() {
         return x;

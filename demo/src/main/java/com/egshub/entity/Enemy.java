@@ -5,36 +5,32 @@ import java.awt.Graphics;
 
 import com.egshub.main.Game;
 
-public class Enemy {
-
-    public double x, y;
-
-    public static int width = 25;
-    public static int height = 4;
-
-    private int offset = 1;
+public class Enemy extends Entity {
 
     public Enemy(double x, double y) {
-        this.x = x;
-        this.y = y;
+        super(x, y, 0);
+        
+        setOffset(1);
+        setWidth(25);
+        setHeight(4);
     }
     
     public void tick() {
-        x += Game.ball.x - x;
+        setX(getX() + Game.ball.x - getX());
 
         
-        if(x > Game.WIDTH - width - offset) {
-            x = Game.WIDTH - width - offset;
+        if(getX() > Game.WIDTH - getWidth() - getOffset()) {
+            setX(Game.WIDTH - getWidth() - getOffset());
         }
 
-        if(x < offset) {
-            x = offset;
+        if(getX() < getOffset()) {
+            setX(getOffset());
         }
     }
 
     public void render(Graphics g) {
         g.setColor(Color.ORANGE);
-        g.fillRect((int)x * Game.SCALE, (int)y * Game.SCALE, width * Game.SCALE, height * Game.SCALE);
+        g.fillRect((int)getX() * Game.SCALE, (int)getY() * Game.SCALE, getWidth() * Game.SCALE, getHeight() * Game.SCALE);
     }
 
 }
