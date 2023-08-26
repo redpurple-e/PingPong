@@ -38,7 +38,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
         player = new Player(HEIGHT, WIDTH/2, 2);
         enemy = new Enemy(WIDTH/2, 1);
-        ball = new Ball(WIDTH/2 + Ball.width/2, HEIGHT/2 + Ball.height/2);
+        ball = new Ball(WIDTH/2, HEIGHT/2, 1);
     }
     
     public static void main( String[] args ) {

@@ -25,7 +25,7 @@ public class Player extends Entity {
             setX(getX() + getSpeed());
         }
         
-        if(getX() > Game.WIDTH - getWidth() + getOffset()) {
+        if(getX() >= Game.WIDTH - getWidth() + getOffset()) {
             setX(Game.WIDTH - getWidth() - getOffset());
         }
         if(getX() < getOffset()) {

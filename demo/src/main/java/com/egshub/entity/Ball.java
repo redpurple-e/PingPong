@@ -6,31 +6,32 @@ import java.util.Random;
 
 import com.egshub.main.Game;
 
-public class Ball {
-    public double x, y;
+public class Ball extends Entity {
 
-    public static int width = 4;
-    public static int height = 4;
+    public double dx, dy;
+    private double mod;
 
-    public double dx, dy, speed;
+    public Ball(double x, double y, double speed) {
+        super(x, y, speed);
 
-    public Ball(double x, double y) {
-        this.x = x;
-        this.y = y;
+        setWidth(4);
+        setHeight(4);
 
         dx = new Random().nextGaussian();
         dy = new Random().nextGaussian();
-        speed = 0.5;
+        
+        mod = Math.sqrt(dx*dx + dy*dy);
+        if(new Random().nextInt(2) == 1) mod *= -1;
     }
     
     public void tick() {
-        x += dx * speed;
-        y += dy * speed;
+        setX(getX() + Math.cos(mod) * getSpeed());
+        setY(getY() + Math.sin(mod) * getSpeed());
     }
 
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.fillRect((int)x * Game.SCALE, (int)y * Game.SCALE, width * Game.SCALE, height * Game.SCALE);
+        g.fillOval((int) getX()*Game.SCALE, (int) getY()*Game.SCALE, getWidth()*Game.SCALE, getHeight()*Game.SCALE);
+        ///g.fillRect((int)getX() * Game.SCALE, (int)getY() * Game.SCALE, getWidth() * Game.SCALE, getHeight() * Game.SCALE);
     }
-
 }

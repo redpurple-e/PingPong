@@ -16,10 +16,10 @@ public class Enemy extends Entity {
     }
     
     public void tick() {
-        setX(getX() + Game.ball.x - getX());
+        setX(getX() + Game.ball.getX() - getX());
 
         
-        if(getX() > Game.WIDTH - getWidth() - getOffset()) {
+        if(getX() >= Game.WIDTH - getWidth() - getOffset()) {
             setX(Game.WIDTH - getWidth() - getOffset());
         }
 
